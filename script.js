@@ -35,10 +35,33 @@ const reponses = [
   { texte: "Pourquoi hésites-tu ?", type: "reflexion" },
   { texte: "Pose-toi la vraie question.", type: "reflexion" },
   { texte: "Et si tu attendais un peu ?", type: "reflexion" },
+  { texte: "Trop tôt pour le savoir. Reviens dans 10 jours.", type: "reflexion" },
+{ texte: "J’ai bien une réponse, mais elle ne va pas te plaire.", type: "reflexion" },
   { texte: "Tu cherches une réponse ou une permission ?", type: "reflexion" },
   { texte: "Que conseillerais-tu à quelqu'un d'autre ?", type: "reflexion" },
   { texte: "Ton intuition essaie de te dire quelque chose.", type: "reflexion" },
   { texte: "Tu connais peut-être déjà la réponse.", type: "reflexion" },
+
+
+  // HUMOUR
+{ texte: "Alors là, remets-toi en question.", type: "humour" },
+{ texte: "Cette pression serait mieux dans un verre.", type: "humour" },
+{ texte: "Il te reste le joker : « Appel à un ami ».", type: "humour" },
+{ texte: "No way.", type: "humour" },
+{ texte: "T’as plus de chances au loto.", type: "humour" },
+{ texte: "Trop tôt pour le savoir. Reviens dans 10 jours.", type: "humour" },
+{ texte: "ChatGPT dirait : « Tu es au bon endroit, crois en toi, tu es un cadeau de l’univers. »", type: "humour" },
+{ texte: "T’es sérieux ? Ça fait 10 fois que tu me la poses.", type: "humour" },
+{ texte: "Erreur 404 : fous-moi la paix.", type: "humour" },
+{ texte: "Va sur Doctolib prendre rendez-vous avec un spécialiste.", type: "humour" },
+{ texte: "Pas vu, pas pris.", type: "humour" },
+{ texte: "Ça sent le sapin.", type: "humour" },
+{ texte: "Tu crois au Père Noël ?", type: "humour" },
+{ texte: "Mets-toi en mode « avion », je ne peux plus rien pour toi.", type: "humour" },
+{ texte: "Et la marmotte met le chocolat dans le papier d’aluminium.", type: "humour" },
+{ texte: "Achète « La survie pour les nuls ».", type: "humour" },
+{ texte: "J’ai bien une réponse, mais elle ne va pas te plaire.", type: "humour" },
+{ texte: "Maître Yoda dirait : « Une réponse ? En toi tu la trouveras. »", type: "humour" },
 
   // PROMÉTHÉE / HUMOUR
   { texte: "Je décline toute responsabilité.", type: "reflexion" },
