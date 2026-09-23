@@ -1,1 +1,396 @@
+/* =========================
+   RÉGLAGES GÉNÉRAUX
+========================= */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top, #2c2c4a 0%, #11111f 45%, #05050a 100%);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   CONTENEUR PRINCIPAL
+========================= */
+
+.jeu {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding:
+    max(30px, env(safe-area-inset-top))
+    20px
+    max(30px, env(safe-area-inset-bottom))
+    20px;
+}
+
+
+/* =========================
+   TITRES
+========================= */
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  letter-spacing: 0.15em;
+  font-weight: 900;
+
+  margin-bottom: 5px;
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 25px rgba(116, 105, 255, 0.25);
+}
+
+h2 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 400;
+  opacity: 0.85;
+
+  margin-bottom: 35px;
+}
+
+
+/* =========================
+   CONSIGNE
+========================= */
+
+.consigne {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  opacity: 0.9;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================
+   ZONE DU POINT D'INTERROGATION
+========================= */
+
+.zone-question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px 0 20px;
+}
+
+
+/* =========================
+   BOUTON ?
+========================= */
+
+.bouton-question {
+  width: clamp(170px, 35vw, 280px);
+  height: clamp(170px, 35vw, 280px);
+
+  border-radius: 50%;
+
+  border: 3px solid rgba(255, 255, 255, 0.4);
+
+  background:
+    radial-gradient(circle at 35% 30%, #6f68ff, #3e38c8 45%, #171642 100%);
+
+  color: white;
+
+  font-size: clamp(7rem, 20vw, 12rem);
+  font-weight: bold;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 20px rgba(111, 104, 255, 0.5),
+    0 0 60px rgba(111, 104, 255, 0.25),
+    inset 0 0 30px rgba(255, 255, 255, 0.1);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  animation: respiration 2.5s ease-in-out infinite;
+}
+
+
+/* EFFET AU SURVOL */
+.bouton-question:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 30px rgba(140, 135, 255, 0.8),
+    0 0 80px rgba(111, 104, 255, 0.4);
+}
+
+
+/* EFFET AU CLIC */
+.bouton-question:active {
+  transform: scale(0.95);
+}
+
+
+/* =========================
+   ANIMATION DOUCE DU ?
+========================= */
+
+@keyframes respiration {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* =========================
+   ANIMATION DE ROTATION
+   ajoutée avec JavaScript
+========================= */
+
+.bouton-question.tourne {
+  animation: rotationMystere 1s linear infinite;
+}
+
+@keyframes rotationMystere {
+
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+/* =========================
+   TEXTE SOUS LE ?
+========================= */
+
+.instruction {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+
+  opacity: 0.7;
+
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+
+/* =========================
+   ZONE DE RÉPONSE
+========================= */
+
+.zone-reponse {
+  width: min(95%, 900px);
+
+  min-height: 150px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 15px auto 20px;
+
+  padding: 20px;
+}
+
+
+/* =========================
+   TEXTE DE LA RÉPONSE
+========================= */
+
+#reponse {
+  font-size: clamp(2.2rem, 8vw, 6rem);
+  font-weight: 900;
+
+  line-height: 1.05;
+
+  text-transform: uppercase;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: scale(0.7);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  text-shadow:
+    0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+
+/* Classe ajoutée quand une réponse apparaît */
+#reponse.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* =========================
+   TYPES DE RÉPONSES
+========================= */
+
+#reponse.positive {
+  color: #7cff9b;
+
+  text-shadow:
+    0 0 10px rgba(124, 255, 155, 0.5),
+    0 0 35px rgba(124, 255, 155, 0.25);
+}
+
+#reponse.negative {
+  color: #ff7171;
+
+  text-shadow:
+    0 0 10px rgba(255, 113, 113, 0.5),
+    0 0 35px rgba(255, 113, 113, 0.25);
+}
+
+#reponse.reflexion {
+  color: #ffd36d;
+
+  text-shadow:
+    0 0 10px rgba(255, 211, 109, 0.5),
+    0 0 35px rgba(255, 211, 109, 0.25);
+}
+
+
+/* =========================
+   BOUTON NOUVELLE QUESTION
+========================= */
+
+.bouton-rejouer {
+  border: none;
+
+  border-radius: 999px;
+
+  padding: 15px 28px;
+
+  font-size: 1.05rem;
+  font-weight: bold;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+
+  margin-top: 5px;
+}
+
+
+/* SURVOL */
+.bouton-rejouer:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.04);
+}
+
+
+/* CLIC */
+.bouton-rejouer:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================
+   VERSION TÉLÉPHONE
+========================= */
+
+@media (max-width: 600px) {
+
+  .jeu {
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
+
+  .consigne {
+    margin-bottom: 18px;
+  }
+
+  .bouton-question {
+    width: 180px;
+    height: 180px;
+
+    font-size: 8rem;
+  }
+
+  .zone-reponse {
+    min-height: 130px;
+    padding: 10px;
+  }
+
+  #reponse {
+    font-size: clamp(2rem, 12vw, 4rem);
+  }
+
+  .bouton-rejouer {
+    margin-top: 10px;
+  }
+}
+
+
+/* =========================
+   VERSION TABLETTE / IPAD
+========================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+  .bouton-question {
+    width: 240px;
+    height: 240px;
+
+    font-size: 10rem;
+  }
+
+  #reponse {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+  }
+}
