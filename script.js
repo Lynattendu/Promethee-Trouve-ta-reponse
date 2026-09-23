@@ -41,7 +41,7 @@ const reponses = [
   { texte: "Tu connais peut-être déjà la réponse.", type: "reflexion" },
 
   // PROMÉTHÉE / HUMOUR
-  { texte: "Prométhée décline toute responsabilité.", type: "reflexion" },
+  { texte: "Je décline toute responsabilité.", type: "reflexion" },
   { texte: "Techniquement oui... raisonnablement, peut-être pas.", type: "reflexion" },
   { texte: "Ton cerveau dit non. Ton sourire dit oui.", type: "reflexion" },
   { texte: "Si tu poses la question, c'est déjà suspect.", type: "reflexion" },
