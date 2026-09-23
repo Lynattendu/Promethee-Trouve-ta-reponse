@@ -1,2 +1,82 @@
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <title>Prométhée — Trouve ta réponse</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <main class="jeu">
+
+    <!-- TITRE -->
+    <h1>PROMÉTHÉE</h1>
+
+    <h2>Trouve ta réponse</h2>
+
+
+    <!-- PETITE CONSIGNE -->
+    <p class="consigne">
+      Pose ta question à voix haute...
+    </p>
+
+
+    <!-- POINT D'INTERROGATION -->
+    <div class="zone-question">
+
+      <button
+        id="boutonQuestion"
+        class="bouton-question"
+        aria-label="Obtenir une réponse"
+      >
+        ?
+      </button>
+
+    </div>
+
+
+    <!-- TEXTE SOUS LE POINT D'INTERROGATION -->
+    <p id="instruction" class="instruction">
+      Appuie sur le ? pour découvrir ta réponse
+    </p>
+
+
+    <!-- ZONE OÙ LA RÉPONSE APPARAÎTRA -->
+    <div
+      id="zoneReponse"
+      class="zone-reponse"
+      aria-live="polite"
+    >
+
+      <p id="reponse"></p>
+
+    </div>
+
+
+    <!-- BOUTON POUR REJOUER -->
+    <button
+      id="boutonRejouer"
+      class="bouton-rejouer"
+      type="button"
+    >
+      Nouvelle question
+    </button>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
